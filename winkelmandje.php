@@ -9,6 +9,11 @@ include 'head.html';
 <link href="style1.css" rel="stylesheet" type="text/css"/>
 <div id="left_sidebar"> Hier komen de bestellingen</div>
 <div id="content">
+<?php
+/*hier komen de gegevens van de klant qua adres enzo
+*/
+//momenteel niet gekoppeld aan database!!!!
+?>
 <fieldset>
 <legend>Klantinformatie:</legend>
 <br>
@@ -42,7 +47,19 @@ include 'head.html';
 		<br><br>
 </fieldset>
 <br>
-<input type="submit" name="Bestelling" value="Bestelling plaatsen" align="left">
+<input type="submit" name="Bestelling" value="Bestelling plaatsen">
+</form>
+<br><br>
+<form action="*">
+<input type="submit" name="ga terug" value="ga terug">
+</form>
 </div>
 </body>
 </html>	
+<?php
+/* op het moment is nog niks gekoppeld en is de division
+content af. Natuurlijk moeten er nog een paar dingen aan gebeuren 
+maar het kan zo af zijn.
+als je iets veranderd laat dan effe een comment achter hier met wat je hebt veranderd.
+Danku
+*/
