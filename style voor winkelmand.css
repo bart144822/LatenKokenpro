@@ -1,0 +1,18 @@
+/*************opmaak voor winkelmandje************/
+body{
+	margin: 0px;
+	text-align: center;
+	background-color: #FFFFFF
+}
+#left_sidebar{
+	width: 300px;
+	height: 300px;
+	float: left;
+	background-color: #FFFFFF;
+}
+#content{
+	margin-left: 45%;
+	width: 45%;
+	height: 50%;
+	background-attachment: #FFFFFF;
+}
