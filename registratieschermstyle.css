@@ -1,0 +1,29 @@
+/*Style voor registratiescherm*/
+/*Font type*/
+html{
+	font-family: Arial, serif;
+}
+/*achtergrond kleur*/
+	Body{
+		background-color: #EFEFEF /* neutral*/
+	}
+/*tabel loctatie*/	
+	#Tableregistratie{
+		float: left;
+		margin-top: 3%;
+		margin-left: 41%;
+	}
+	H2{
+		color: #FF3B3F;
+	}
+/*button opmaak*/
+	#buttonregistratie {
+    background-color: #FF3B3F; /* watermelon */
+    border: none;
+    color: white;
+    padding: 5px 9px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
