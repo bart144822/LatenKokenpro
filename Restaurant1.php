@@ -2,11 +2,12 @@
 <html> 
 <head> 
 <title></title> 
+<link href="style.css" rel="stylesheet" type="text/css"/> 
 </head> 
 <body> 
 <?php //include 'Dataconnectie.php';?>
 <?php //include 'head.html';?>
-<?php //$query = "SELECT * FROM items   ";
+<?php //$query = "SELECT * FROM items WHERE restaurant_id = 1 ";
 ///$result = mysqli_query($db, $query);
 //if (!$result) { 
 //die("Database query failed.");
@@ -14,15 +15,16 @@
 ?>
 <h1 align="center">Restaurant naam</h1>
 <h2 align="right">Foto</h2>
-<link href="style1.css" rel="stylesheet" type="text/css"/>
 <div id="content">
 <fieldset>
 <legend>Restaurant menu:</legend>
 <br>
 <table>
 <form method="POST" action="*">
-<tr><td></td>
-<td></td></tr>
+<?php //while($row = mysqli_fetch_assoc($result)){ 
+//echo "<tr>"."<td>". $item = $row["product_naam"] $prijs = $row["prijs"]."</td>"."</tr>";
+//}
+?>
 </table>
 <br><br>
 </fieldset>
