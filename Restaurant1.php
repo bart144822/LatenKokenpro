@@ -2,7 +2,7 @@
 <html> 
 <head> 
 <title></title> 
-<link href="style.css" rel="stylesheet" type="text/css"/> 
+<link rel="stylesheet" type="text/css" href="restaurantpaginastyle.css"> 
 </head> 
 <body> 
 <?php //include 'Dataconnectie.php';?>
