@@ -1,0 +1,12 @@
+/*footerstyle*/
+	#footer {
+		position: fixed;
+		bottom: 0px;
+		float: left;
+		margin-left: 39%;
+		margin-bottom: 0.5%
+	}
+	/*Font type*/
+html{
+	font-family: Arial, serif;
+}
