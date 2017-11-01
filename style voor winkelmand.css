@@ -1,18 +1,36 @@
 /*************opmaak voor winkelmandje************/
+html{ 
+	font-family: Arial,serif;
+}
+h1{ 
+	color: #A9A9A9
+}
 body{
 	margin: 0px;
 	text-align: center;
-	background-color: #FFFFFF
+	background-color: #EFEFEF;
 }
 #left_sidebar{
-	width: 300px;
+	width: 250px;
 	height: 300px;
-	float: left;
-	background-color: #FFFFFF;
+	padding-left: 100px;
+	background-color: #EFEFEF;
+	margin: 0px;
 }
 #content{
 	margin-left: 45%;
 	width: 45%;
 	height: 50%;
 	background-attachment: #FFFFFF;
+	margin-top: -250px;
 }
+#top_part{
+	width: 250px;
+	height: 25px;
+	background-color: #CAEBF2;
+}
+#button{
+	background-color: #FF3B3F;
+	border: none;
+}
+/****************************************************/
