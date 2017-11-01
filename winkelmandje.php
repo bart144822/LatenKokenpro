@@ -4,19 +4,19 @@
 <?php
 include 'head.html';
 ?>
-<h1 align="center" >Restaurant naam</h1> <?php // hier komt later een variabel ?>
-<h2 align="right">Foto</h2> <?php // hier komt later een variabel ?>
+<h1 align="center" ><?php echo "Restaurant naam" ?></h1> <?php // hier komt later een variabel ?>
+<h2 align="right"><?php echo "Foto" ?></h2> <?php // hier komt later een variabel ?>
 <link href="style voor winkelmand.css" rel="stylesheet" type="text/css"/>
 <div id="left_sidebar"> 
 <div id="top_part">
 Uw bestellingen
 </div>
 <table width="250px">
-<tr><td>Item 1 </td><td> Prijs 1</td></tr><?php // alle items en prijzen worden later nog variablen ?>
-<tr><td>Item 2 </td><td> Prijs 2</td></tr>
-<tr><td>Item 3 </td><td> Prijs 3</td></tr>
-<tr><td>Item 4 </td><td> Prijs 4</td></tr>
-<tr><td>Item 5 </td><td> Prijs 5</td></tr>
+<tr><td><?php echo "Item 1" ?> </td><td> <?php echo "Prijs 1" ?></td></tr><?php // alle items en prijzen worden later nog variablen ?>
+<tr><td><?php echo "Item 2" ?> </td><td> <?php echo "Prijs 2" ?></td></tr>
+<tr><td><?php echo "Item 3" ?> </td><td> <?php echo "Prijs 3" ?></td></tr>
+<tr><td><?php echo "Item 4" ?> </td><td> <?php echo "Prijs 4" ?></td></tr>
+<tr><td><?php echo "Item 5" ?> </td><td> <?php echo "Prijs 5" ?></td></tr>
 </table>
 </div>
 <div id="content">
@@ -41,9 +41,9 @@ Uw bestellingen
 <tr><td>Betaalinformatie</td></tr>
 </table>
 <table><tr><td>
-<input type="radio" name="IDeal" value="PayPal" checked>IDeal</td><td>
-<input type="radio" name="Contant" value="Contant">Contant</td><td>
-<input type="radio" name="PayPal" value="PayPal">PayPal</td></tr>
+<input type="radio" name="Betalen" value="PayPal" checked>IDeal</td><td>
+<input type="radio" name="Betalen" value="Contant">Contant</td><td>
+<input type="radio" name="Betalen" value="PayPal">PayPal</td></tr>
 </table>
 <br><br>
 <hr width="100%" color="black" size="1">
