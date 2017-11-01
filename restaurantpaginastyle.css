@@ -1,0 +1,10 @@
+/*restaurantpagina style*/
+	html{
+		font-family: Arial, serif;
+	}
+	body{
+		background-color: #EFEFEF /* neutral*/
+	}
+	H1{
+		color:#FF3B3F; /* watermelon */
+	}
