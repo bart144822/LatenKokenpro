@@ -4,10 +4,21 @@
 <?php
 include 'head.html';
 ?>
-<h1 align="center">Restaurant naam</h1>
-<h2 align="right">Foto</h2>
-<link href="style1.css" rel="stylesheet" type="text/css"/>
-<div id="left_sidebar"> Hier komen de bestellingen</div>
+<h1 align="center" >Restaurant naam</h1> <?php // hier komt later een variabel ?>
+<h2 align="right">Foto</h2> <?php // hier komt later een variabel ?>
+<link href="style voor winkelmand.css" rel="stylesheet" type="text/css"/>
+<div id="left_sidebar"> 
+<div id="top_part">
+Uw bestellingen
+</div>
+<table width="250px">
+<tr><td>Item 1 </td><td> Prijs 1</td></tr><?php // alle items en prijzen worden later nog variablen ?>
+<tr><td>Item 2 </td><td> Prijs 2</td></tr>
+<tr><td>Item 3 </td><td> Prijs 3</td></tr>
+<tr><td>Item 4 </td><td> Prijs 4</td></tr>
+<tr><td>Item 5 </td><td> Prijs 5</td></tr>
+</table>
+</div>
 <div id="content">
 <?php
 /*hier komen de gegevens van de klant qua adres enzo
@@ -30,7 +41,7 @@ include 'head.html';
 <tr><td>Betaalinformatie</td></tr>
 </table>
 <table><tr><td>
-<input type="radio" name="IDeal" value="PayPal">IDeal</td><td>
+<input type="radio" name="IDeal" value="PayPal" checked>IDeal</td><td>
 <input type="radio" name="Contant" value="Contant">Contant</td><td>
 <input type="radio" name="PayPal" value="PayPal">PayPal</td></tr>
 </table>
@@ -47,11 +58,11 @@ include 'head.html';
 		<br><br>
 </fieldset>
 <br>
-<input type="submit" name="Bestelling" value="Bestelling plaatsen">
+<input id="button" type="submit" name="Bestelling" value="Bestelling plaatsen">
 </form>
 <br><br>
 <form action="*">
-<input type="submit" name="ga terug" value="ga terug">
+<input id="button" type="submit" name="ga terug" value="ga terug">
 </form>
 </div>
 </body>
