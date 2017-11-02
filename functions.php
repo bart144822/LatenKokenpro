@@ -9,14 +9,19 @@ function GetAdres($adres){
 
     $adres = str_replace(" ", "+", $adres); // alle spaties worden een +
 
-    $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address=$adres";
+    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=$adres&key=AIzaSyAH6pW-QzhczP66NDe_BIBpejdzc1Hh1wA";
 
     $response = file_get_contents($url);
 
     $json = json_decode($response,TRUE); //het resultaat word in een array gezet
-
-    return ($json['results'][0]['geometry']['location']['lat'].",".$json['results'][0]['geometry']['location']['lng']);
+  if ($json["status"]=="ZERO_RESULTS"){
+      //var_dump($json);
+      return"ingevulde adres klopt niet";
+  }else{
+      //var_dump($json);
+      return ($json['results'][0]['geometry']['location']['lat'].",".$json['results'][0]['geometry']['location']['lng']);
+  }
 
 }
 
-echo GetAdres("meerweg 35 9606 pm kropswolde");
+//echo GetAdres("meerweg 35 9606 pm kropswolde");
