@@ -46,7 +46,7 @@ include "head.html";
         font-family: Arial, serif;
     }
     #woonplaats {
-        background-color: rgba(72,72,72,0.7);
+        background-color: #484848;
         padding: 10px 20px 30px 20px;
         max-width:100%;
         position: absolute;
