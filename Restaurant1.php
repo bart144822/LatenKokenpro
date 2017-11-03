@@ -21,8 +21,23 @@ die("Database query failed.");
 <br>
 <table>
 <form method="POST" action="">
-<?php while($row = mysqli_fetch_assoc($result)){ 
-echo "<tr>"."<td>"."<input type='hidden' value='['product_id']'>".$item = $row["product_naam"] ."<td>"."<td>"."<td>"."<td>"."€".$prijs = $row["prijs"]."<td>"."<td>"."<input type='number' min='0' max='99' name='aantal'>"."</td>"."</tr>";
+
+
+<?php $x=0; while($row = mysqli_fetch_assoc($result)){
+$x++;
+    echo"<tr><td>";
+    //echo "<input name='id$x' type='hidden'  value=".$row['product_id'].">";
+    echo $row['product_naam'];
+    echo"<td><td><td><td>";
+    echo "€".$row['prijs'];
+    echo"<td><td>";
+    echo "<input type='number' min='0' max='99' name='".$row['product_id']."'>";
+
+
+
+
+
+
 }
 ?>
 </table>
@@ -35,4 +50,6 @@ echo "<tr>"."<td>"."<input type='hidden' value='['product_id']'>".$item = $row["
 <?php //include 'Footer.php';?>
 <?php include 'Dataeinde.php';?>
 </body> 
-</html> 
+</html>
+
+
