@@ -1,7 +1,7 @@
 /*footerstyle*/
 	#footer {
-		position: fixed;
-		bottom: 0px;
+		padding-top: 35%;
+		bottom: 0;
 		float: left;
 		margin-left: 39%;
 		margin-bottom: 0.5%
