@@ -35,13 +35,14 @@ $x++;
 }
 ?>
 </table>
+<br><br>
 <input type='submit' value='Toevoegen aan bestelling'>
-<?php var_dump($_POST); ?>
+<?php //var_dump($_POST); ?>
 <br><br>
 </fieldset>
 </from>
 </div>
-<?php //include 'Footer.php';?>
+<?php include 'Footer.php';?>
 <?php include 'Dataeinde.php';?>
 </body> 
 </html>
