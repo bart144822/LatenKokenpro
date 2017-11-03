@@ -13,7 +13,7 @@
 //die("Database query failed.");
 //}
 ?>
-<h1 align="center">Restaurant naam</h1>
+<h1 align="center">Mccluskey</h1>
 <h2 align="right">Foto</h2>
 <div id="content">
 <fieldset>
