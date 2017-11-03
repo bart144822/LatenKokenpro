@@ -16,7 +16,7 @@ include "head.html";
     <div id="woonplaats">
     <form action="" method="post">
 
-        <input id="adres" title="adres" placeholder="Ardes" type="text">
+        <input id="adres" title="adres" placeholder="Ardes" type="text" required>
         <input type="submit" value="ZOEK">
 
     </form>
