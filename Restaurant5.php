@@ -7,13 +7,13 @@
 <body> 
 <?php include 'Dataconnectie.php';?>
 <?php include 'head.html';?>
-<?php $query = "SELECT * FROM items WHERE restaurant_restaurant_id = 1 ";
+<?php $query = "SELECT * FROM items WHERE restaurant_restaurant_id = 5 ";
 $result = mysqli_query($db, $query);
 if (!$result) { 
 die("Database query failed.");
 }
 ?>
-<h1 align="center">Mccluskey</h1>
+<h1 align="center">Pepe's Restaurant</h1>
 <h2 align="right">Foto</h2>
 <div id="content">
 <fieldset>
