@@ -14,7 +14,7 @@ die("Database query failed.");
 }
 ?>
 <h1 align="center">The Red Dragon</h1>
-<h2 align="right">Foto</h2>
+<img src= "red.jpg" width=500 align="right"></img>
 <div id="content">
 <fieldset>
 <legend>Restaurant menu:</legend>

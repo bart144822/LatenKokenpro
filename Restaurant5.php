@@ -14,7 +14,7 @@ die("Database query failed.");
 }
 ?>
 <h1 align="center">Pepe's Restaurant</h1>
-<h2 align="right">Foto</h2>
+<img src= "pepes-restaurant.png" width=500 align="right"></img>
 <div id="content">
 <fieldset>
 <legend>Restaurant menu:</legend>

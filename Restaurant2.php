@@ -14,7 +14,7 @@ die("Database query failed.");
 }
 ?>
 <h1 align="center">Steaks & Chops</h1>
-<h2 align="right">Foto</h2>
+<img src= "bobs-steak-chop-house-logo.png" width=400 align="right"></img>
 <div id="content">
 <fieldset>
 <legend>Restaurant menu:</legend>
