@@ -48,6 +48,6 @@ function distance($lat1, $lon1, $lat2, $lon2) {
 }
 
 
-echo distance($location1, $location2, $location3, $location4) . " Kilometers<br>";
+//echo distance($location1, $location2, $location3, $location4) . " Kilometers<br>";
 
 
