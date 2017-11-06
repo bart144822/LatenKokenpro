@@ -1,7 +1,7 @@
 <?php
 //variabelen aanmaken met basis waarden tegen de notice van undefined index.
-$email = ""
-$wachtwoordinlog = ""
+$email = "";
+$wachtwoordinlog = "";
 //waarde meegeven aan de variabelen van het inlog forum.
 $email = $_POST["email"];
 $wachtwoordinlog = md5($_POST["wachtwoordinlog"]);
