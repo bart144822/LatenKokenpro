@@ -8,17 +8,18 @@
 <body>
 <!--<fieldset>-->
 <table>	
-<form Action="inlogscherm.php" method="POST">
+<form Action="" method="POST">
 <tr>
 <td>Email:</td>
-<td><input type="email" name="email"></td>
+<td><input type="email" name="email" required></td>
 </tr>
 
 <tr>
 <td>Wachtwoord:</td>
-<td><input type="password" name="wachtwoord"></td>
+<td><input type="password" name="wachtwoordinlog" required></td>
 <tr>
-<td><input id="buttoninlog" type ="submit" value="Log in"></td>
+<td><input id="buttoninlog" type ="submit" name="login" value="Log in"></td>
+
 
 </form>
 
@@ -29,6 +30,11 @@
 </form>
 </table>
 </div>
+<?php 
+if(!isset($_POST["login"])){
+	include "inlogcheck.php";
+}
+?>
 <?php include("footer.php")?>
 <!--</fieldset>-->
 </body> 
