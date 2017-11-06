@@ -58,11 +58,11 @@ Uw bestellingen
 		<br><br>
 </fieldset>
 <br>
-<input id="button" type="submit" name="Bestelling" value="Bestelling plaatsen">
+<input id="button1" type="submit" name="Bestelling" value="Bestelling plaatsen">
 </form>
 <br><br>
-<form action="*">
-<input id="button" type="submit" name="ga terug" value="ga terug">
+<form action="javascript:history.back();" align="right">
+<input id="button2" type="submit" name="ga terug" value="Ga terug">
 </form>
 </div>
 </body>
