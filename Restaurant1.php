@@ -7,14 +7,14 @@
 <body> 
 <?php include 'Dataconnectie.php';?>
 <?php include 'head.html';?>
-<?php $query = "SELECT * FROM items WHERE restaurant_restaurant_id = 1 ";
+<?php $query = "SELECT * FROM items WHERE restaurant_restaurant_id = ".$_GET["id"];
 $result = mysqli_query($db, $query);
 if (!$result) { 
 die("Database query failed.");
 }
 ?>
 <h1 align="center">Mccluskey</h1>
-<img src= "Mccluskey.png" width=400 align="right"></img>
+<h2 align="right">Foto</h2>
 <div id="content">
 <fieldset>
 <legend>Restaurant menu:</legend>
@@ -32,17 +32,21 @@ $x++;
     echo "€".$row['prijs'];
     echo"<td><td>";
     echo "<input type='number' min='0' max='99' name='".$row['product_id']."'>";
+
+
+
+
+
+
 }
 ?>
 </table>
-<br><br>
 <input type='submit' value='Toevoegen aan bestelling'>
-<?php //var_dump($_POST); ?>
 <br><br>
 </fieldset>
-</from>
+</form>
 </div>
-<?php include 'Footer.php';?>
+<?php //include 'Footer.php';?>
 <?php include 'Dataeinde.php';?>
 </body> 
 </html>
