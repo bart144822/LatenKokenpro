@@ -8,13 +8,23 @@
 <?php include 'Dataconnectie.php';?>
 <?php include 'head.html';?>
 <?php $query = "SELECT * FROM items WHERE restaurant_restaurant_id = ".$_GET["id"];
+$query2 = "SELECT restaurantnaam, imgurl FROM restaurant WHERE restaurant_id = ".$_GET["id"];
 $result = mysqli_query($db, $query);
+$result2 = mysqli_query($db, $query2);
 if (!$result) { 
 die("Database query failed.");
 }
 ?>
-<h1 align="center">Mccluskey</h1>
-<h2 align="right">Foto</h2>
+<h1 align="center">
+<?php $row2 = mysqli_fetch_assoc($result2);
+echo $row2['restaurantnaam']; ?>
+</h1>
+<h2 align="right">
+<?php
+$row2 = mysqli_fetch_assoc($result2);
+echo $row2['imgurl'];
+?>
+</h2>
 <div id="content">
 <fieldset>
 <legend>Restaurant menu:</legend>
