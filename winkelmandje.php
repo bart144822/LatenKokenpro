@@ -14,10 +14,8 @@ include 'head.html';
 <div id="top_part">
 Uw bestellingen
 </div>
-<?php
-$items= $_POST[.$row['product_id'].];
 <table width="250px">
-<tr><td><?php echo $items ?> </td><td> <?php echo "Prijs 1" ?></td></tr><?php // alle items en prijzen worden later nog variablen ?>
+<tr><td><?php echo "item 1" ?> </td><td> <?php echo "Prijs 1" ?></td></tr><?php // alle items en prijzen worden later nog variablen ?>
 <tr><td><?php echo "Item 2" ?> </td><td> <?php echo "Prijs 2" ?></td></tr>
 <tr><td><?php echo "Item 3" ?> </td><td> <?php echo "Prijs 3" ?></td></tr>
 <tr><td><?php echo "Item 4" ?> </td><td> <?php echo "Prijs 4" ?></td></tr>
