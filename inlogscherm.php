@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
+<?php include "head.html"; ?>
 <title>Inlogscherm</title> 
 <link rel="stylesheet" type="text/css" href="inlogschermstyle.css">
 <div ID="Tableinlog"><H2>Login</H2>
@@ -35,7 +36,7 @@ if(!isset($_POST["login"])){
 	include "inlogcheck.php";
 }
 ?>
-<?php include("footer.php")?>
+<?php include "footer.php";?>
 <!--</fieldset>-->
 </body> 
 </html> 
