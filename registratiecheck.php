@@ -3,17 +3,17 @@
 <head> 
 <title>registratie check</title> 
 </head>
-<link rel="stylesheet" type="text/css" href="registratiecheckbuttonsstyle.css"> 
+<link rel="stylesheet" type="text/css" href="registratiescermstyle.css"> 
 <body> 
 <?php
 include "Dataconnectie.php";
 $email = $_POST["email"];
 $voornaam=ucwords ($_POST["voornaam"]);
 $achternaam= ucwords($_POST["achternaam"]);
-$postcode=$_POST["postcode"];
-$straatnaam=$_POST["straatnaam"];
+$postcode=strtoupper($_POST["postcode"]);
+$straatnaam= ucwords($_POST["straatnaam"]);
 $huisnummer=$_POST["huisnummer"];
-$plaatsnaam=$_POST["plaatsnaam"];
+$plaatsnaam= ucwords($_POST["plaatsnaam"]);
 $wachtwoord= $_POST['wachtwoord'];
 $md5wachtwoord = md5($wachtwoord);
 $wachtwoord2= $_POST['wachtwoord2'];
@@ -75,7 +75,19 @@ If($_SERVER["REQUEST_METHOD"] == "POST"){
 	}
 }
 
-//if(database query voor het checken of gegevens al in de database staan){
+$emailquery = '
+SELECT email 
+FROM klant 
+WHERE email="$email"';
+
+$result = mysqli_query($db, $emailquery);
+
+while($row = mysqli_fetch_assoc($result)){
+	if($email == $row["email"]){
+		$Error .="Het opgegeven emailadres staat al geregistreerd op deze site";
+	}
+}
+
 	//als alles goed is ingevuld en de email nog niet in de database staat wordt het toegevoegd aan de database en dan krijgt de klant de optie om naar het homescreen te gaan of in te loggen. 
 	if ($Error == ""){
 		$query = "INSERT INTO `klant` (`klant_id`, `voornaam`, `achternaam`, `straatnaam`, `postcode`, `huisnummer`, `plaatsnaam`, `email`, `wachtwoord`) VALUES ('','$voornaam', '$achternaam', '$straatnaam', '$postcode', '$huisnummer', '$plaatsnaam', '$email', '$md5wachtwoord')";
@@ -84,7 +96,8 @@ If($_SERVER["REQUEST_METHOD"] == "POST"){
 	}
 	//weergave van alle errors als die er zijn
 	else{
-		echo "$Error";
+		echo "Uw error(s):<br/> $Error";
+		include "registratiefail.php";
 	}
 //}
 include "Dataeinde.php";
