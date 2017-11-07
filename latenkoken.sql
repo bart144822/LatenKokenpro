@@ -1,11 +1,11 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 03 nov 2017 om 12:23
--- Serverversie: 10.1.26-MariaDB
--- PHP-versie: 7.1.8
+-- Generation Time: Nov 07, 2017 at 01:35 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `items`
+-- Table structure for table `items`
 --
 
 CREATE TABLE `items` (
@@ -36,7 +36,7 @@ CREATE TABLE `items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `items`
+-- Dumping data for table `items`
 --
 
 INSERT INTO `items` (`product_id`, `restaurant_restaurant_id`, `product_naam`, `prijs`) VALUES
@@ -94,7 +94,7 @@ INSERT INTO `items` (`product_id`, `restaurant_restaurant_id`, `product_naam`, `
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `klant`
+-- Table structure for table `klant`
 --
 
 CREATE TABLE `klant` (
@@ -111,7 +111,7 @@ CREATE TABLE `klant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `klant`
+-- Dumping data for table `klant`
 --
 
 INSERT INTO `klant` (`klant_id`, `voornaam`, `achternaam`, `straatnaam`, `postcode`, `huisnummer`, `plaatsnaam`, `email`, `wachtwoord`, `rol`) VALUES
@@ -125,7 +125,7 @@ INSERT INTO `klant` (`klant_id`, `voornaam`, `achternaam`, `straatnaam`, `postco
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
@@ -137,7 +137,7 @@ CREATE TABLE `orders` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `order_items`
+-- Table structure for table `order_items`
 --
 
 CREATE TABLE `order_items` (
@@ -151,7 +151,7 @@ CREATE TABLE `order_items` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `restaurant`
+-- Table structure for table `restaurant`
 --
 
 CREATE TABLE `restaurant` (
@@ -162,46 +162,48 @@ CREATE TABLE `restaurant` (
   `huisnummer` varchar(6) NOT NULL,
   `plaatsnaam` varchar(30) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `telefoonnummer` int(11) NOT NULL
+  `telefoonnummer` int(11) NOT NULL,
+  `imgurl` text,
+  `type` varchar(2000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `restaurant`
+-- Dumping data for table `restaurant`
 --
 
-INSERT INTO `restaurant` (`restaurant_id`, `restaurantnaam`, `straatnaam`, `postcode`, `huisnummer`, `plaatsnaam`, `email`, `telefoonnummer`) VALUES
-(1, 'Mccluskey', 'Herestraat', '9711LK', '52', 'Groningen', 'info@mccluskey.com', 504881947),
-(2, 'Steaks & Chops', 'Grote Markt', '9711LV', '36', 'Groningen', 'info@steakschops.com', 507924947),
-(3, 'Mona Lisa', 'Akerkhof', '9711JB', '6', 'Groningen', 'info@monalisa.nl', 508447766),
-(4, 'The Red Dragon', 'Schuitendiep', '9711RA', '33', 'Groningen', 'info@reddragon.com', 501865722),
-(5, 'Pepe\'s Restaurant', 'Kleine Pelsterstraat ', '9711KN', '2', 'Groningen', 'info@peperestaurant.nl', 506587100);
+INSERT INTO `restaurant` (`restaurant_id`, `restaurantnaam`, `straatnaam`, `postcode`, `huisnummer`, `plaatsnaam`, `email`, `telefoonnummer`, `imgurl`, `type`) VALUES
+(1, 'Mccluskey', 'Herestraat', '9711LK', '52', 'Groningen', 'info@mccluskey.com', 504881947, 'img/Mccluskey.png', 'Amerikaans'),
+(2, 'Steaks & Chops', 'Grote Markt', '9711LV', '36', 'Groningen', 'info@steakschops.com', 507924947, 'img/steak.png', 'Amerikaans'),
+(3, 'Mona Lisa', 'Akerkhof', '9711JB', '6', 'Groningen', 'info@monalisa.nl', 508447766, 'img/mona-lisa-restaurant.jpg', 'Italiaans'),
+(4, 'The Red Dragon', 'Schuitendiep', '9711RA', '33', 'Groningen', 'info@reddragon.com', 501865722, 'img/red.jpg', 'Chinees'),
+(5, 'Pepe\'s Restaurant', 'Kleine Pelsterstraat ', '9711KN', '2', 'Groningen', 'info@peperestaurant.nl', 506587100, 'img/pepes-restaurant.png', 'Italiaans');
 
 --
--- Indexen voor geëxporteerde tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indexen voor tabel `items`
+-- Indexes for table `items`
 --
 ALTER TABLE `items`
   ADD PRIMARY KEY (`product_id`),
   ADD KEY `items_restaurant_fk` (`restaurant_restaurant_id`);
 
 --
--- Indexen voor tabel `klant`
+-- Indexes for table `klant`
 --
 ALTER TABLE `klant`
   ADD PRIMARY KEY (`klant_id`);
 
 --
--- Indexen voor tabel `orders`
+-- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `orders_klant_fk` (`klant_klant_id`);
 
 --
--- Indexen voor tabel `order_items`
+-- Indexes for table `order_items`
 --
 ALTER TABLE `order_items`
   ADD PRIMARY KEY (`order_items_id`),
@@ -210,58 +212,58 @@ ALTER TABLE `order_items`
   ADD KEY `items_product_fk` (`items_product_id`);
 
 --
--- Indexen voor tabel `restaurant`
+-- Indexes for table `restaurant`
 --
 ALTER TABLE `restaurant`
   ADD PRIMARY KEY (`restaurant_id`);
 
 --
--- AUTO_INCREMENT voor geëxporteerde tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT voor een tabel `items`
+-- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
--- AUTO_INCREMENT voor een tabel `klant`
+-- AUTO_INCREMENT for table `klant`
 --
 ALTER TABLE `klant`
   MODIFY `klant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT voor een tabel `orders`
+-- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT voor een tabel `order_items`
+-- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
   MODIFY `order_items_id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT voor een tabel `restaurant`
+-- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
   MODIFY `restaurant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- Beperkingen voor geëxporteerde tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Beperkingen voor tabel `items`
+-- Constraints for table `items`
 --
 ALTER TABLE `items`
   ADD CONSTRAINT `items_ibfk_1` FOREIGN KEY (`restaurant_restaurant_id`) REFERENCES `restaurant` (`restaurant_id`);
 
 --
--- Beperkingen voor tabel `orders`
+-- Constraints for table `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`klant_klant_id`) REFERENCES `klant` (`klant_id`);
 
 --
--- Beperkingen voor tabel `order_items`
+-- Constraints for table `order_items`
 --
 ALTER TABLE `order_items`
   ADD CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`restaurant_restaurant_id`) REFERENCES `restaurant` (`restaurant_id`),
