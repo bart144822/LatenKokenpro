@@ -1,0 +1,12 @@
+/* buttons van registratiescherm check*/
+/*button opmaak*/
+html{
+	font-family: Arial, serif;
+}
+#failbutton{
+	border: none
+}
+/*achtergrond kleur*/
+Body{
+	background-color: #EFEFEF /* neutral*/
+}
