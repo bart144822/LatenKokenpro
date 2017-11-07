@@ -5,10 +5,11 @@
 <link rel="stylesheet" type="text/css" href="inlogschermstyle.css">
 <div ID="Tableinlog"><H2>Login</H2>
 </head> 
+
 <body>
 <!--<fieldset>-->
 <table>	
-<form Action="" method="POST">
+<form action="inlogcheck.php" method="POST">
 <tr>
 <td>Email:</td>
 <td><input type="email" name="email" required></td>
@@ -18,7 +19,7 @@
 <td>Wachtwoord:</td>
 <td><input type="password" name="wachtwoordinlog" required></td>
 <tr>
-<td><input id="buttoninlog" type ="submit" name="login" value="Log in"></td>
+<td><input id="buttoninlog" type ="submit" name="buttoninlog" value="Log in"></td>
 
 
 </form>
@@ -30,11 +31,6 @@
 </form>
 </table>
 </div>
-<?php 
-if(!isset($_POST["login"])){
-	include "inlogcheck.php";
-}
-?>
 <?php include("footer.php")?>
 <!--</fieldset>-->
 </body> 
