@@ -9,6 +9,7 @@ function GetAdres($adres){
 
     $adres = str_replace(" ", "+", $adres); // alle spaties worden een +
 
+    //$url="http://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($add);
     $url = "https://maps.googleapis.com/maps/api/geocode/json?address=$adres&key=AIzaSyAH6pW-QzhczP66NDe_BIBpejdzc1Hh1wA";
 
     $response = file_get_contents($url);
@@ -24,12 +25,12 @@ function GetAdres($adres){
 
 }
 
-$locationr=GetAdres("meerweg 3 9606 pm kropswolde");
+//$locationr=GetAdres("meerweg 3 9606 pm kropswolde");
+//$ad="meerweg 35 9606 pm kropswolde";
+//echo GetAdres($ad);
 
-$locationu=GetAdres("meerweg 35 9606 pm kropswolde");
-
-list($location1, $location2)= explode(' ',$locationu);
-list($location3, $location4)= explode(' ',$locationr);
+//list($location1, $location2)= explode(' ',$locationu);
+//list($location3, $location4)= explode(' ',$locationr);
 
 //echo "$location1. $location2. $location3. $location4";
 

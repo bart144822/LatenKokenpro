@@ -14,9 +14,9 @@ include "head.html";
 <h3 id="home">Vind restaurants bij jou in de buurt</h3>
 </div>
     <div id="woonplaats">
-    <form action="" method="post">
+    <form action="restaurantlijst.php" method="post">
 
-        <input id="adres" title="adres" placeholder="Ardes" type="text" required>
+        <input name="adres" id="adres" title="adres" placeholder="Ardes" type="text" required>
         <input type="submit" value="ZOEK">
 
     </form>
