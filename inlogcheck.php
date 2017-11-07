@@ -7,15 +7,14 @@
 <?php
 //waarde van het inlog forum meegeven aan variabelen.
 $email = $_POST["email"];
-$wachtwoordinlog = md5($_POST["wachtwoordinlog"]);
-
+$wachtwoordinlog =/* md5(*/$_POST["wachtwoordinlog"]/*)*/;
 
 //connectie met de database
 include 'Dataconnectie.php';
 
 //de query voor het ophalen van de tabel van wachtwoorden
 $query = "
-SELECT wachtwoord 
+SELECT * 
 FROM klant
 WHERE email = '$email'";
 
@@ -26,11 +25,13 @@ while($row = mysqli_fetch_assoc($result)){
 	//check of het wachtwoord uit de database die verbonden is aan het opgegeven emailadres overeen komt met het opgegeven wachtwoord
 	if($wachtwoordinlog == $row["wachtwoord"]){
 		include "inlogsucces.php";
+		session_start();
 	}
 	else{
 	include "inlogfail.php";
 	}
-}
+	$_SESSION['klant_id'] = $row['klant_id'];
+	$_SESSION['rol'] = $row['rol'];
 ?>
 </body>
-</HTML>
+</html>

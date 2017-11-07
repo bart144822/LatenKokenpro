@@ -98,7 +98,22 @@ function order($x)
 }
 //echo order(3);
 
+function orderitems($items,$order,$res_id){
+    foreach ($items as $key => $value){
+        if  ($value > 0){
+            $query = "INSERT INTO `order_items` (`order_items_id`, `orders_order_id`, `restaurant_restaurant_id`, `items_product_id`, `items_qty`)
+            VALUES (NULL, '$order', '$res_id', '$key', '$value')";
+            include "Dataconnectie.php";
+            $result = mysqli_query($db, $query);
+            if (!$result) {
+                //echo $query;
+                die("Database query failed.");
+        }
 
+    }
+     
+}
+}
 
 
 
