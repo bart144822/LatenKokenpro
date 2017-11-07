@@ -59,7 +59,7 @@ if (!$result) {
 die("Database query failed.");
 }
 $klantadres = GetAdres($adres);
-$Radres=array("");
+//$Radres=array("");
 while($row = mysqli_fetch_assoc($result)){
 
 
@@ -74,10 +74,10 @@ while($row = mysqli_fetch_assoc($result)){
     //echo $distance;
     if ($distance<10){
         $laag.=$row['restaurant_id'];
-        $laag.=" OR";
+        $laag.=" OR ";
     }
 }
- return $laag;
+ return substr($laag, 0, -3);
 }
 
 
