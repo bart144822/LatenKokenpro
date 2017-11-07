@@ -19,13 +19,16 @@ die("Database query failed.");
 }
 ?>
 <h1 align="center">
-<?php $row2 = mysqli_fetch_assoc($result2);
-echo $row2['restaurantnaam']; ?>
+<?php
+$row2 = mysqli_fetch_assoc($result2);
+$_SESSION['naam']= $row2['restaurantnaam']; 
+echo $_SESSION['naam']; ?>
 </h1>
 <h2 align="right">
 <?php
-//$row2 = mysqli_fetch_assoc($result2);
-//echo $row2['imgurl'];
+$row2 = mysqli_fetch_assoc($result2);
+$_SESSION['plaatje'] = $row2['imgurl'];
+echo $_SESSION['plaatje'];
 ?>
 </h2>
 <div id="content">
