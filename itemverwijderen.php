@@ -17,7 +17,7 @@ if (isset($_POST["confirmation"])){
 	if ($result){
         echo ("Product ID " .$_POST["product_id"] . " is verwijderd.<p>\n");
         ?>
-        <form> <input type="button" value="Home" onclick="window.location.href='http://localhost/hoorcollege/week4/index.php'" /></form>
+        <form> <input type="button" value="Home" onclick="window.location.href='http://localhost/phpmyadmin/sandbox/project1.1/index.php'" /></form>
             <?php
     }
 
