@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
+<?php include "head.html"; ?>
 <title>Registratiesecherm</title> 
 </head> 
 <body> 
@@ -58,6 +59,6 @@
 
 </form>
 </div>
-<?php include("footer.php"); ?>
+<?php include "footer.php"; ?>
 </body> 
 </html> 
