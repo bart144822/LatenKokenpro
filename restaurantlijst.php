@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
 <style>
@@ -66,10 +69,10 @@ include 'head.html';
 <?php include 'Dataconnectie.php';?>
 <?php 
 if (empty($_GET["restaurant"])) {
-	$query = "SELECT restaurant_id, restaurantnaam, straatnaam, imgurl FROM restaurant ";
+	$query = "SELECT restaurant_id, restaurantnaam, straatnaam FROM restaurant ";
 }
 else {
-	$query = "SELECT restaurant_id, restaurantnaam, straatnaam, imgurl FROM restaurant WHERE type = '".$_GET["restaurant"]."'";
+	$query = "SELECT restaurant_id, restaurantnaam, straatnaam FROM restaurant WHERE type = '".$_GET["restaurant"]."'";
 }
 $result = mysqli_query($db, $query);
 if (!$result) { 
