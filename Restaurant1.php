@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html> 
 <html> 
 <head> 
@@ -8,7 +11,7 @@
 <?php include 'Dataconnectie.php';?>
 <?php include 'head.html';?>
 <?php $query = "SELECT * FROM items WHERE restaurant_restaurant_id = ".$_GET["id"];
-$query2 = "SELECT restaurantnaam, imgurl FROM restaurant WHERE restaurant_id = ".$_GET["id"];
+$query2 = "SELECT restaurantnaam FROM restaurant WHERE restaurant_id = ".$_GET["id"];
 $result = mysqli_query($db, $query);
 $result2 = mysqli_query($db, $query2);
 if (!$result) { 
@@ -21,8 +24,8 @@ echo $row2['restaurantnaam']; ?>
 </h1>
 <h2 align="right">
 <?php
-$row2 = mysqli_fetch_assoc($result2);
-echo $row2['imgurl'];
+//$row2 = mysqli_fetch_assoc($result2);
+//echo $row2['imgurl'];
 ?>
 </h2>
 <div id="content">
@@ -30,11 +33,12 @@ echo $row2['imgurl'];
 <legend>Restaurant menu:</legend>
 <br>
 <table>
-<form method="POST" action="">
+<form method="POST" action="winkelmandje.php">
 
 
 <?php $x=0; while($row = mysqli_fetch_assoc($result)){
 $x++;
+
     echo"<tr><td>";
     //echo "<input name='id$x' type='hidden'  value=".$row['product_id'].">";
     echo $row['product_naam'];
