@@ -32,6 +32,7 @@ while($row = mysqli_fetch_assoc($result)){
 	}
 	$_SESSION['klant_id'] = $row['klant_id'];
 	$_SESSION['rol'] = $row['rol'];
+}
 ?>
 </body>
 </html>

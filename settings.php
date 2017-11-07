@@ -1,7 +1,7 @@
 <html>
 <title>Settings</title>
 <body>
-<link href="style voor settings.css" rel="stylesheet" type="text/css"/>
+<link href="style voor setting.css" rel="stylesheet" type="text/css">
 <?php
 session_start();
 include 'Dataconnectie.php';
@@ -36,7 +36,6 @@ if (mysqli_num_rows($result) > 0) {
 <tr><td>Plaatsnaam: </td><td><input type="text" name="plaatsnaam" value="<?php echo($plaatsnaam);?>"></td></tr>
 </table>
 <hr>
-
 <input type="submit" value="wijzig">
 <input type="submit" value="Nee terug" onclick="javascript:history.back();">
 </form>
@@ -54,5 +53,26 @@ WHERE klant_id='" .$_POST["klant_id"] ."'";
 }
 }
 ?>
+<?php
+	switch($_SESSION['rol']){
+			case 'A1': echo"<a href='Restaurant1wijzigen.php'>restaurant 1 wijzigen</a> </br>"; 
+					   echo"<a href='Restaurant2wijzigen.php'>restaurant 2 wijzigen</a> </br>"; 
+					   echo"<a href='Restaurant3wijzigen.php'>restaurant 3 wijzigen</a> </br>"; 
+					   echo"<a href='Restaurant4wijzigen.php'>restaurant 4 wijzigen</a> </br>"; 
+					   echo"<a href='Restaurant5wijzigen.php'>restaurant 5wijzigen</a>";
+				break; 
+			case 'R1': echo"<a href='Restaurant1wijzigen.php'>Uw pagine wijzigen</a>";
+				break;
+			case 'R2': echo"<a href='Restaurant2wijzigen.php'>Uw pagine wijzigen</a>";
+				break;
+			case 'R3': echo"<a href='Restaurant3wijzigen.php'>Uw pagine wijzigen</a>";
+				break;
+			case 'R4': echo"<a href='Restaurant4wijzigen.php'>Uw pagine wijzigen</a>";
+				break;
+			case 'R5': echo"<a href='Restaurant5wijzigen.php'>Uw pagine wijzigen</a>";
+				break;		
+	}
+?>
+
 </body>
 </html>
