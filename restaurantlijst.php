@@ -64,12 +64,17 @@ h1 {
 </head>
 <body>
 <?php
+include "functions.php";
 include 'head.html';
-?>
-<?php include 'Dataconnectie.php';?>
-<?php 
+include 'Dataconnectie.php';
+
+
+$selectie=restaurantselectie($_POST['adres']);
+
+
+
 if (empty($_GET["restaurant"])) {
-	$query = "SELECT restaurant_id, restaurantnaam, straatnaam FROM restaurant ";
+    $query = "SELECT restaurant_id, restaurantnaam, straatnaam FROM restaurant WHERE restaurant_id IN(".$selectie.")";
 }
 else {
 	$query = "SELECT restaurant_id, restaurantnaam, straatnaam FROM restaurant WHERE type = '".$_GET["restaurant"]."'";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 03 nov 2017 om 12:23
+-- Gegenereerd op: 07 nov 2017 om 13:51
 -- Serverversie: 10.1.26-MariaDB
 -- PHP-versie: 7.1.8
 
@@ -76,7 +76,7 @@ INSERT INTO `items` (`product_id`, `restaurant_restaurant_id`, `product_naam`, `
 (34, 4, 'Bami goreng', '6.00'),
 (35, 4, 'Mi-fang met gesneden kip', '10.50'),
 (36, 4, 'Mi-fang goreng \'singapore', '11.00'),
-(37, 4, 'Tjap tjoy en foe yong hai saté', '12.00'),
+(37, 4, 'Tjap tjoy en foe yong hai sate', '12.00'),
 (38, 4, 'Foe yong hai met krab', '11.50'),
 (39, 4, 'Gesneden kipfilet met yu hsiang saus', '13.00'),
 (40, 4, 'Babi pangang met pikante saus', '11.50'),
@@ -158,23 +158,25 @@ CREATE TABLE `restaurant` (
   `restaurant_id` int(11) NOT NULL,
   `restaurantnaam` varchar(50) NOT NULL,
   `straatnaam` varchar(30) NOT NULL,
-  `postcode` varchar(6) NOT NULL,
+  `postcode` varchar(7) NOT NULL,
   `huisnummer` varchar(6) NOT NULL,
   `plaatsnaam` varchar(30) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `telefoonnummer` int(11) NOT NULL
+  `telefoonnummer` int(11) NOT NULL,
+  `imgurl` text NOT NULL,
+  `type` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `restaurant`
 --
 
-INSERT INTO `restaurant` (`restaurant_id`, `restaurantnaam`, `straatnaam`, `postcode`, `huisnummer`, `plaatsnaam`, `email`, `telefoonnummer`) VALUES
-(1, 'Mccluskey', 'Herestraat', '9711LK', '52', 'Groningen', 'info@mccluskey.com', 504881947),
-(2, 'Steaks & Chops', 'Grote Markt', '9711LV', '36', 'Groningen', 'info@steakschops.com', 507924947),
-(3, 'Mona Lisa', 'Akerkhof', '9711JB', '6', 'Groningen', 'info@monalisa.nl', 508447766),
-(4, 'The Red Dragon', 'Schuitendiep', '9711RA', '33', 'Groningen', 'info@reddragon.com', 501865722),
-(5, 'Pepe\'s Restaurant', 'Kleine Pelsterstraat ', '9711KN', '2', 'Groningen', 'info@peperestaurant.nl', 506587100);
+INSERT INTO `restaurant` (`restaurant_id`, `restaurantnaam`, `straatnaam`, `postcode`, `huisnummer`, `plaatsnaam`, `email`, `telefoonnummer`, `imgurl`, `type`) VALUES
+(1, 'Mccluskey', 'Herestraat', '9711 LK', '52', 'Groningen', 'info@mccluskey.com', 504881947, 'img/Mccluskey.png', 'Amerikaans'),
+(2, 'Steaks & Chops', 'Grote Markt', '9711 LV', '36', 'Groningen', 'info@steakschops.com', 507924947, 'img/steak.png', 'Amerikaans'),
+(3, 'Mona Lisa', 'Akerkhof', '9711 JB', '6', 'Groningen', 'info@monalisa.nl', 508447766, 'img/mona-lisa-restaurant.jpg', 'Italiaans'),
+(4, 'The Red Dragon', 'Schuitendiep', '9711 RA', '33', 'Groningen', 'info@reddragon.com', 501865722, 'img/red.jpg', 'Chinees'),
+(5, 'Pepe\'s Restaurant', 'Kleine Pelsterstraat ', '9711 KN', '2', 'Groningen', 'info@peperestaurant.nl', 506587100, 'img/pepes-restaurant.png', 'Italiaans');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -223,7 +225,7 @@ ALTER TABLE `restaurant`
 -- AUTO_INCREMENT voor een tabel `items`
 --
 ALTER TABLE `items`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT voor een tabel `klant`
 --

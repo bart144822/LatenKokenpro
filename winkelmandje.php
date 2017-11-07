@@ -1,18 +1,21 @@
+<?php
+session_start();
+?>
 <html>
 <title>Winkelmandje</title>
 <body>
 <?php
 include 'head.html';
 ?>
-<h1 align="center" ><?php echo "Restaurant naam" ?></h1> <?php // hier komt later een variabel ?>
-<h2 align="right"><?php echo "Foto" ?></h2> <?php // hier komt later een variabel ?>
+<h1 align="center" ><?php echo $_SESSION['naam']; ?></h1> <?php // hier komt later een variabel ?>
+<h2 align="right"><?php echo $_SESSION['plaatje']; ?></h2> <?php // hier komt later een variabel ?>
 <link href="style voor winkelmand.css" rel="stylesheet" type="text/css"/>
 <div id="left_sidebar"> 
 <div id="top_part">
 Uw bestellingen
 </div>
 <table width="250px">
-<tr><td><?php echo "Item 1" ?> </td><td> <?php echo "Prijs 1" ?></td></tr><?php // alle items en prijzen worden later nog variablen ?>
+<tr><td><?php echo "item 1" ?> </td><td> <?php echo "Prijs 1" ?></td></tr><?php // alle items en prijzen worden later nog variablen ?>
 <tr><td><?php echo "Item 2" ?> </td><td> <?php echo "Prijs 2" ?></td></tr>
 <tr><td><?php echo "Item 3" ?> </td><td> <?php echo "Prijs 3" ?></td></tr>
 <tr><td><?php echo "Item 4" ?> </td><td> <?php echo "Prijs 4" ?></td></tr>
@@ -31,8 +34,8 @@ Uw bestellingen
 <table>
 <form method="POST" action="*">
 <tr><td>bezorgadres:</td></tr>
-<tr><td><input type="text" value="Straatnaam en Huisnummer" name="adres" max="40"></td>
-<td><input type="text" value="Postcode" max="7" name="Postcode"></td><td><input type="text" value="Plaatsnaam" name="Plaatsnaam"></td></tr>
+<tr><td><input type="text" placeholder="Straatnaam en Huisnummer" name="adres" max="40"></td>
+<td><input type="text" placeholder="Postcode" max="7" name="Postcode"></td><td><input type="text" placeholder="Plaatsnaam" name="Plaatsnaam"></td></tr>
 </table>
 <br><br>
 <hr width="100%" color="black" size="1">
