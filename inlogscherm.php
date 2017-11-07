@@ -9,7 +9,7 @@
 <body>
 <!--<fieldset>-->
 <table>	
-<form Action="" method="POST">
+<form Action="inlogcheck.php" method="POST">
 <tr>
 <td>Email:</td>
 <td><input type="email" name="email" required></td>
