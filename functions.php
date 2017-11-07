@@ -72,9 +72,34 @@ function restaurantselectie($adres){
 
 
 
+//deze funtie maakt een order en geeft het als resultaat
+function order($x)
+{
 
-//$distance=distance($location1, $location2, $location3, $location4);
+    $date = date('Y-m-d');
+    //echo $date;
+    $query = "INSERT INTO `orders` (`order_id`, `klant_klant_id`, `order_date`) VALUES (NULL, '$x', '$date')";
+    include "Dataconnectie.php";
+    $result = mysqli_query($db, $query);
+    if (!$result) {
+        die("Database query failed.");
+    } else {
+        $query2 = " SELECT order_id FROM `orders` WHERE klant_klant_id IN(" . $x . ") ORDER BY order_id DESC";
+        $result2 = mysqli_query($db, $query2);
+        if (!$result2) {
+            die("Database query failed.");
+        }
 
 
-//echo restaurantselectie("Oude Ebbingestraat 86 9712 HM Groningen");
-// //include 'Dataeinde.php';?>
+    }
+    while ($row = mysqli_fetch_assoc($result2)) {
+        return $row['order_id'];
+    }
+}
+//echo order(3);
+
+
+
+
+
+?>
