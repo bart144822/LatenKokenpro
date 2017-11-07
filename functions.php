@@ -1,4 +1,5 @@
 <?php
+//session_start();
 /**
  * Created by PhpStorm.
  * User: bart
@@ -98,7 +99,9 @@ function order($x)
 }
 //echo order(3);
 
-function orderitems($items,$order,$res_id){
+function orderitems($items,$res_id){
+    $order=order($_SESSION['klant_id']);
+    $_SESSION['order']=$order;
     foreach ($items as $key => $value){
         if  ($value > 0){
             $query = "INSERT INTO `order_items` (`order_items_id`, `orders_order_id`, `restaurant_restaurant_id`, `items_product_id`, `items_qty`)

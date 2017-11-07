@@ -1,15 +1,23 @@
 <?php
 session_start();
+$klant_id=$_SESSION['klant_id'];
 include "functions.php";
-$order=order(4);
+include "Dataconnectie.php";
+//$order=order(4);
 $res_id=$_SESSION['resid'];
-orderitems($_POST,$order,$res_id);
+orderitems($_POST,$res_id);
+$order=$_SESSION['order'];
 ?>
 <html>
 <title>Winkelmandje</title>
 <body>
 <?php
 include 'head.html';
+$query = "SELECT * FROM order_items o JOIN items i ON items_product_id= product_id WHERE orders_order_id LIKE($order) ";
+$result = mysqli_query($db, $query);
+if (!$result) { 
+die("Database query failed.");
+}
 ?>
 <h1 align="center" ><?php echo $_SESSION['naam']; ?></h1> <?php // hier komt later een variabel ?>
 <h2 align="right"><?php echo $_SESSION['plaatje']; ?></h2> <?php // hier komt later een variabel ?>
@@ -19,11 +27,16 @@ include 'head.html';
 Uw bestellingen
 </div>
 <table width="250px">
-<tr><td><?php echo "item 1" ?> </td><td> <?php echo "Prijs 1" ?></td></tr><?php // alle items en prijzen worden later nog variablen ?>
-<tr><td><?php echo "Item 2" ?> </td><td> <?php echo "Prijs 2" ?></td></tr>
-<tr><td><?php echo "Item 3" ?> </td><td> <?php echo "Prijs 3" ?></td></tr>
-<tr><td><?php echo "Item 4" ?> </td><td> <?php echo "Prijs 4" ?></td></tr>
-<tr><td><?php echo "Item 5" ?> </td><td> <?php echo "Prijs 5" ?></td></tr>
+<?php while($row = mysqli_fetch_assoc($result)){
+		echo"<tr><td>";
+		echo $row['product_naam'];
+		echo"<td><td><td><td>";
+		echo "€".$row['prijs'];
+		echo"<td><td>";
+		echo $row['items_qty'];
+		echo"<td><td>";
+	}
+	?>
 </table>
 </div>
 <div id="content">
@@ -36,7 +49,7 @@ Uw bestellingen
 <legend>Klantinformatie:</legend>
 <br>
 <table>
-<form method="POST" action="*">
+<form method="POST" action="afgerond.php">
 <tr><td>bezorgadres:</td></tr>
 <tr><td><input type="text" placeholder="Straatnaam en Huisnummer" name="adres" max="40"></td>
 <td><input type="text" placeholder="Postcode" max="7" name="Postcode"></td><td><input type="text" placeholder="Plaatsnaam" name="Plaatsnaam"></td></tr>
@@ -73,6 +86,7 @@ Uw bestellingen
 </form>
 </div>
 </body>
+<?php include "footer.php";?>
 </html>	
 <?php
 /* op het moment is nog niks gekoppeld en is de division
