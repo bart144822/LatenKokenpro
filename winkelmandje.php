@@ -1,5 +1,9 @@
 <?php
 session_start();
+include "functions.php";
+$order=order(4);
+$res_id=$_SESSION['resid'];
+orderitems($_POST,$order,$res_id);
 ?>
 <html>
 <title>Winkelmandje</title>
