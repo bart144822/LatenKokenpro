@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="inlogschermstyle.css">
 <div ID="Tableinlog"><H2>Login</H2>
 </head> 
-
+<?php include "head.html"; ?>
 <body>
 <!--<fieldset>-->
 <table>	
@@ -31,7 +31,7 @@
 </form>
 </table>
 </div>
-<?php include("footer.php")?>
+<?php include "footer.php"?>
 <!--</fieldset>-->
 </body> 
 </html> 
