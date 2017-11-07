@@ -1,26 +1,36 @@
+<html> 
+<head> 
+<title>registratiecheckbuttons</title>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="inlogschermstyle.css">
 <?php
-//variabelen aanmaken met basis waarden tegen de notice van undefined index.
-$email = "";
-$wachtwoordinlog = "";
-//waarde meegeven aan de variabelen van het inlog forum.
+//waarde van het inlog forum meegeven aan variabelen.
 $email = $_POST["email"];
 $wachtwoordinlog = md5($_POST["wachtwoordinlog"]);
 
+
 //connectie met de database
-include 'dataconnectie.php';
+include 'Dataconnectie.php';
 
-//de query voor het ophalen van het wachtwoord die vergeleken wordt met het $wachtwoordinlog
-$query = "SELECT ('wachtwoord')
+//de query voor het ophalen van de tabel van wachtwoorden
+$query = "
+SELECT wachtwoord 
 FROM klant
-WHERE email = $email";
+WHERE email = '$email'";
 
-$wachtwoordmd5 = mysqli_query($db, $query);
+$result = mysqli_query($db, $query);
 
-if($wachtwoordinlog == $wachtwoordmd5){
-	include "head.php"
+//wachtwoord ophalen uit de database
+while($row = mysqli_fetch_assoc($result)){
+	//check of het wachtwoord uit de database die verbonden is aan het opgegeven emailadres overeen komt met het opgegeven wachtwoord
+	if($wachtwoordinlog == $row["wachtwoord"]){
+		include "inlogsucces.php";
+	}
+	else{
+	include "inlogfail.php";
+	}
 }
-else{
-	Echo "Het opgegeven wachtwoord en/of emailadres zijn niet correct";
-}
-
 ?>
+</body>
+</HTML>
