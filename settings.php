@@ -3,9 +3,10 @@
 <body>
 <link href="style voor settings.css" rel="stylesheet" type="text/css"/>
 <?php
+session_start();
 include 'Dataconnectie.php';
 include 'head.html'; 
-$query = "SELECT * FROM klant WHERE klant_id ='" .$_GET["klant_id"]."";
+$query = "SELECT * FROM klant WHERE klant_id = $_SESSION[klant_id]";
 $result = mysqli_query($db, $query);
 if (!$result) { 
 die("Database query failed.");
