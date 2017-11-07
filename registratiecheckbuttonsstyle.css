@@ -1,0 +1,30 @@
+/* buttons van registratiescherm check*/
+/*button opmaak*/
+html{
+	font-family: Arial, serif;
+}
+#buttoncheck {
+    background-color: #FF3B3F; /* watermelon */
+    border: none;
+    color: white;
+    padding: 5px 9px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	border-radius: 5px;
+}
+/*achtergrond kleur*/
+Body{
+	background-color: #EFEFEF /* neutral*/
+}
+/*tabel locatie*/	
+#tablecheck{
+	float: left;
+	margin-top: 1%;
+	margin-left:42.6%;
+}
+H2{
+	margin-left: 39.1%;
+	margin-top:4%;
+}

@@ -50,5 +50,41 @@ function distance($lat1, $lon1, $lat2, $lon2) {
 
 
 //echo distance($location1, $location2, $location3, $location4) . " Kilometers<br>";
+function restaurantselectie($adres){
+$laag="";
+include "Dataconnectie.php";   
+$query = "SELECT restaurant_id, straatnaam, huisnummer, postcode, plaatsnaam, restaurantnaam FROM restaurant ";
+$result = mysqli_query($db, $query);
+if (!$result) { 
+die("Database query failed.");
+}
+$klantadres = GetAdres($adres);
+$Radres=array("");
+while($row = mysqli_fetch_assoc($result)){
 
 
+    $Radres=GetAdres($row['straatnaam'], $row['huisnummer'], $row['postcode'], $row['plaatsnaam']);
+//var_dump($Radres);
+
+
+    list($location1, $location2)= explode(' ',$klantadres);
+    list($location3, $location4)= explode(' ',$Radres);
+    echo"<br />";
+    $distance=distance($location1, $location2, $location3, $location4);
+    //echo $distance;
+    if ($distance<10){
+        $laag.=$row['restaurant_id'];
+        $laag.=" OR";
+    }
+}
+ return $laag;
+}
+
+
+
+
+// $distance=distance($location1, $location2, $location3, $location4);
+
+
+echo restaurantselectie("Oude Ebbingestraat 86 9712 HM Groningen");
+// //include 'Dataeinde.php';?>
