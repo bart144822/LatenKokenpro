@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['resid']=$_GET["id"];
 ?>
 <!DOCTYPE html> 
 <html> 
