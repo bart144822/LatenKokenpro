@@ -1,16 +1,14 @@
 <?php
-//session_start();
 /**
  * Created by PhpStorm.
  * User: bart
  * Date: 11/02/2017
  * Time: 11:04
- *///deze functie maakt van een adres cordinaten
+ *///deze functie maakt van een adres coordinaten
 function GetAdres($adres){
 
     $adres = str_replace(" ", "+", $adres); // alle spaties worden een +
 
-    //$url="http://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($add);
     $url = "https://maps.googleapis.com/maps/api/geocode/json?address=$adres&key=AIzaSyAH6pW-QzhczP66NDe_BIBpejdzc1Hh1wA";
 
     $response = file_get_contents($url);
@@ -18,7 +16,7 @@ function GetAdres($adres){
     $json = json_decode($response,TRUE); //het resultaat word in een array gezet
     if ($json["status"]=="ZERO_RESULTS"){
         //var_dump($json);
-        return"ingevulde adres klopt niet";
+        return "ingevulde adres klopt niet";
     }else{
         //var_dump($json);
         return ($json['results'][0]['geometry']['location']['lat']." ".$json['results'][0]['geometry']['location']['lng']);
@@ -26,11 +24,11 @@ function GetAdres($adres){
 
 }
 
-// deze functie geeft van 2 gegeven cordinaten het verschil in kilometers
+// deze functie geeft van 2 gegeven coordinaten het verschil in kilometers
 function distance($lat1, $lon1, $lat2, $lon2) {
 
-    $theta = $lon1 - $lon2;
-    $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+    $theta = floatval($lon1) - floatval($lon2);
+    $dist = sin(deg2rad(floatval($lat1))) * sin(deg2rad(floatval($lat2))) +  cos(deg2rad(floatval($lat1))) * cos(deg2rad(floatval($lat2))) * cos(deg2rad(floatval($theta)));
     $dist = acos($dist);
     $dist = rad2deg($dist);
     $miles = $dist * 60 * 1.1515;
@@ -47,14 +45,14 @@ function restaurantselectie($adres){
     $query = "SELECT restaurant_id, straatnaam, huisnummer, postcode, plaatsnaam, restaurantnaam FROM restaurant ";
     $result = mysqli_query($db, $query);
     if (!$result) {
-        die("Database query failed.");
+        die("Er zijn geen restaurants in deze stad.");
     }
     $klantadres = GetAdres($adres);
 //$Radres=array("");
     while($row = mysqli_fetch_assoc($result)){
 
 
-        $Radres=GetAdres($row['straatnaam'], $row['huisnummer'], $row['postcode'], $row['plaatsnaam']);
+        $Radres=GetAdres($row['straatnaam']." ".$row['huisnummer']." ".$row['postcode']." ".$row['plaatsnaam']." Nederland");
 //var_dump($Radres);
 
 
@@ -73,7 +71,7 @@ function restaurantselectie($adres){
 
 
 
-//deze funtie maakt een order en geeft het als resultaat
+//deze functie maakt een order en geeft het als resultaat
 function order($x)
 {
 

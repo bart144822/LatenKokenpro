@@ -19,21 +19,21 @@ h1 {
 
 .top {
 	position: fixed;
-	top: 150px;
+	top: 175px;
 	left: 50px;
 
 }
 
 .middle {
 	position: fixed;
-	top: 350px;
+	top: 375px;
 	left: 50px;
 	
 }
 
 .bottom {
 	position: fixed;
-	top: 550px;
+	top: 575px;
 	left: 50px;
 	
 }
@@ -46,18 +46,54 @@ h1 {
 
 .list {
 	position: relative;
-	background-color: #CAEBF2;
 	width: 900px;
-	height: 1200px;
+	height: 600px;
 	left: 300px;
-	top: 75px;
+	top: 0px;
 	
 }
 
-.rl {
-	border: 1px solid black;
+.title {
+	position: relative;
+	width: 900px;
+	height: 50px;
+	left: 300px;
+	top: 0px;
 }
 
+.rl {
+		width: 900px;
+}
+
+table, td {
+	background-color: #CAEBF2;
+	border: 1px solid black;
+	border-collapse: collapse;
+	height: 100px;
+}
+
+.c1 {
+	width: 100px;
+	text-align: center;
+}
+
+.c2 {
+	width: 150px;
+	text-align: center;
+}
+
+.c3 {
+	padding: 20px;
+}
+
+.ad{
+	position: fixed;
+	height: 600px;
+	width: 300px;
+	background-color: #CAEBF2;
+	left: 1300px;
+	top: 175px;
+}
 
 
 </style>
@@ -71,20 +107,19 @@ include 'Dataconnectie.php';
 
 $selectie=restaurantselectie($_POST['adres']);
 
-
-
-if (empty($_GET["restaurant"])) {
-    $query = "SELECT restaurant_id, restaurantnaam, straatnaam FROM restaurant WHERE restaurant_id IN(".$selectie.")";
+if (empty($_POST["restaurant"])) {
+    $query = "SELECT restaurant_id, restaurantnaam, straatnaam, imgurl FROM restaurant WHERE restaurant_id IN (".$selectie.")";
 }
 else {
-	$query = "SELECT restaurant_id, restaurantnaam, straatnaam FROM restaurant WHERE type = '".$_GET["restaurant"]."'";
-}
+	$query = "SELECT restaurant_id, restaurantnaam, straatnaam, imgurl FROM restaurant WHERE type = '".$_POST["restaurant"]."' AND restaurant_id IN (".$selectie.")";
+	}
 $result = mysqli_query($db, $query);
 if (!$result) { 
 die("Database query failed.");
 }
 ?>
-<form action="restaurantlijst.php">
+<form action="restaurantlijst.php" method="post">
+<input type="hidden" name="adres" value="<?php echo $_POST['adres'] ?>">
 <div  class="selector top">
 Restaurant filter <br>
 <input type="radio" name="restaurant" value="Chinees"> Chinees<br>
@@ -115,7 +150,17 @@ Minimum bestelbedrag <br>
 
 </div>
 </div>
+
+<div class="ad">
+<a href="https://www.dominos.nl/?gclid=EAIaIQobChMIhK6c_tmt1wIVUxbTCh1BxwSYEAAYASAAEgLAbPD_BwE" target="_blank">
+<img src="img/adpocaplypse.jpg">
+</a>
+</div>
 </form>
+
+<div class="title">
+<H1>Zoekresultaten</H1>
+</div>
 
 <div class="list">
 
@@ -129,10 +174,10 @@ if ($result->num_rows == 0){
 while($row = mysqli_fetch_assoc($result)){
 $x++;
     echo"<table class=\"rl\">";
-	echo"<tr><td><a href=\"Restaurant1.php?id=".$row['restaurant_id']."\">".$row['restaurant_id']."</a></td>";
-	echo"<td style=\"width: 900px;\">";
+	echo"<tr><td class=\"c1\"><a href=\"Restaurant1.php?id=".$row['restaurant_id']."\">".$row['restaurant_id']."</a></td>";
+	echo"<td  class=\"c2\" >";
     if (!empty($row['imgurl'])) {echo "<img src=\"".$row['imgurl']."\" width=\"100\" >";}
-    echo"</td><td>";
+    echo"</td><td class=\"c3\">";
 	echo $row['restaurantnaam'];
 	echo"<br>";
     echo $row['straatnaam'];
