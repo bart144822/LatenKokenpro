@@ -12,5 +12,11 @@ session_destroy();
 
 ?>
 <h1> U bent uitgelogd </h1>
+<form>
+<input type="submit" formaction="index.php" ID="button" value="Home">
+</form>
+<?php
+include 'footer.php';
+?>
 </body>
 </html>
