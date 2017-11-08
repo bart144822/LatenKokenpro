@@ -19,12 +19,12 @@ if (mysqli_num_rows($result) > 0) {
 		$huisnummer = $row["huisnummer"];
 		$postcode = $row["postcode"];
 		$plaatsnaam = $row["plaatsnaam"];
-	$email = $row["email"];}
+		$email = $row["email"];}
 	?>
 <h3>Let op: Deze gegevens wijzigen?</h3>
 <form action="<?php echo($_SERVER["PHP_SELF"]);?>" method="post"> 
 <input type="hidden" name="confirmation" value="1"> 
-<input type="hidden" name="klant_id" value="<?php echo($_GET["klant_id"]);?>"> 
+<input type="hidden" name="klant_id" value="<?php echo $_SESSION['klant_id']; ?>"> 
 <h2>Settings</h2>
 <table>
 <tr><td>Voornaam: </td><td><input type="text" name="voornaam" value="<?php echo($voornaam);?>"></td></tr>
@@ -37,7 +37,7 @@ if (mysqli_num_rows($result) > 0) {
 </table>
 <hr>
 <input type="submit" value="wijzig">
-<input type="submit" value="Nee terug" onclick="javascript:history.back();">
+<input type="button" value="Nee terug" onclick="javascript:history.back();">
 </form>
 
 <?php
@@ -50,6 +50,7 @@ huisnummer = '". $_POST["huisnummer"] ."',
 postcode = '". $_POST["postcode"] . "', 
 plaatsnaam = '". $_POST["plaatsnaam"] ."'
 WHERE klant_id='" .$_POST["klant_id"] ."'"; 
+$result = mysqli_query($db, $query);
 }
 }
 ?>
@@ -72,6 +73,9 @@ WHERE klant_id='" .$_POST["klant_id"] ."'";
 			case 'R5': echo"<a href='Restaurant5wijzigen.php'>Uw pagine wijzigen</a>";
 				break;		
 	}
+?>
+<?php
+include 'footer.php';
 ?>
 
 </body>
