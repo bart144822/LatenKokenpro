@@ -7,7 +7,7 @@
 <?php
 //waarde van het inlog forum meegeven aan variabelen.
 $email = $_POST["email"];
-$wachtwoordinlog =/* md5(*/$_POST["wachtwoordinlog"]/*)*/;
+$wachtwoordinlog =md5($_POST["wachtwoordinlog"]);
 
 //connectie met de database
 include 'Dataconnectie.php';
