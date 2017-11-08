@@ -1,28 +1,26 @@
 <?php
-//session_start(); 
-//if (isset($_SESSION["rol"])){ 
-//}
-//else
-//die("U heeft geen toegang tot deze pagina.")
+session_start();
+if (isset($_SESSION["rol"])){
+}
+else
+die("U heeft geen toegang tot deze pagina.")
 ?>
 <link rel="stylesheet" type="text/css" href="restaurantpaginastyle.css"> 
 <?php 
 	include 'head.html';
     include 'Dataconnectie.php';
+    //var_dump($_POST);
 ?> 
 
 <?php
 if (isset($_POST["confirmation"])){
-	
-	$query="UPDATE items SET
-		product_naam = '". $_POST["product_naam"] ."', 
-		prijs = '". $_POST["prijs"] ."', 
-		WHERE product_id='" .$_POST["product_id"] ."'";
+	$query="UPDATE `items` SET `product_naam` = '". $_POST["naam"] ."', `prijs` = '". $_POST["prijs"] ."' WHERE `items`.`product_id` = '" .$_GET["product_id"] ."'";
 
+//echo $query;
 	$result = mysqli_query($db, $query);
 	if ($result){
 		echo "<h3>het volgende record is gewijzigd :</h3><p>";
-		echo ("Klantnummer " .$_POST["klantnr"] . ".<hr>\n");?>
+		echo ("product " .$_GET["product_id"] . ".<hr>\n");?>
 		<form><input type="button" value="Home" onclick="window.location.href='http://localhost/phpmyadmin/sandbox/project1.1/index.php'" /></form>
 <?php
 	}
@@ -42,7 +40,7 @@ if (isset($_POST["confirmation"])){
 }
 ?>
 <h3>Let op: Deze gegevens wijzigen?</h3>
-<form action="<?php echo($_SERVER["PHP_SELF"]);?>" method="post">
+<form action="" method="post">
 	<input type="hidden" name="confirmation" value="1">
 	<input type="hidden" name="productid" value="<?php echo($_GET["product_id"]);?>">
 <table>
