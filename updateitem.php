@@ -21,7 +21,7 @@ if (isset($_POST["confirmation"])){
 	if ($result){
 		echo "<h3>het volgende record is gewijzigd :</h3><p>";
 		echo ("product " .$_GET["product_id"] . ".<hr>\n");?>
-		<form><input type="button" value="Home" onclick="window.location.href='http://localhost/phpmyadmin/sandbox/project1.1/index.php'" /></form>
+		<form><input type="button" value="Terug naar overzicht" onclick="javascript: window.history.go(-2)" /></form>
 <?php
 	}
 }else{
